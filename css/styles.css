@@ -52,6 +52,17 @@ body {
   padding-right: 15px;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 .hero-push:hover,
 .hero-push:focus,
 .modal-button:hover,
@@ -529,7 +540,8 @@ body {
   display: flex;
 }
 
-.icon-title {
+.icon-title,
+.footer-form-title {
   margin: auto;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -562,7 +574,48 @@ body {
   fill: #ffffff;
   background: var(--accent-color);
 }
+.footer-form-wrapper {
+  width: 570px;
+  height: 86px;
+  margin-left: auto;
+}
+.footer-form-title {
+  display: block;
+  margin-bottom: 20px;
+}
 
+.footer-form-input {
+  width: 358px;
+  height: 50px;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: var(--secondary-background-color);
+  transition: drop-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-form-btn {
+  width: 200px;
+  height: 50px;
+  padding: 10px 28px 10px 29px;
+  margin-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.87;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  border-radius: 4px;
+  border: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 /* ===========END Футер =========== */
 
 /* ========== Портфолiо =========== */
@@ -694,8 +747,8 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  min-width: 528px;
-  min-height: 581px;
+  width: 528px;
+  height: 581px;
   background: #ffffff;
   box-shadow: var(--box-shadow-modal);
   border-radius: 4px;
@@ -716,6 +769,11 @@ body {
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+}
+
+.close-btn:hover {
+  fill: var(--accent-color);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -744,8 +802,6 @@ body {
   font-size: 12px;
   width: 100%;
   line-height: 1.17;
-  /* identical to box height */
-
   letter-spacing: 0.01em;
   color: #757575;
   margin-bottom: 10px;
@@ -763,11 +819,14 @@ body {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 42px;
+  transition: border-color 250ms;
 }
 
-.modal-form-iput:focus {
-  outline-offset: 0px;
+.modal-form-input:focus,
+.modal-form-comment:focus {
+  outline: none;
   border-color: var(--accent-color);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-form-icon {
@@ -776,4 +835,84 @@ body {
   left: 12px;
   transform: translateY(-50%);
   display: block;
+  transition: fill 250ms;
+}
+
+.modal-form-input:focus + .modal-form-icon {
+  fill: var(--accent-color);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-comment {
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding: 12px 16px;
+  resize: none;
+  transition: border-color 250ms;
+}
+
+.modal-form-comment::placeholder {
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form-checkbox:checked + .modal-form-checkbox-label::before {
+  background-image: url(../images/icon-check-modal.svg);
+  background-size: cover;
+  border: none;
+}
+
+.modal-form-checkbox:focus + .modal-form-checkbox-label::before {
+  outline: 4px var(--accent-color);
+}
+
+.modal-form-checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.modal-form-checkbox-label::before {
+  display: block;
+  content: "";
+  width: 16px;
+  height: 15px;
+  border: 1px solid #2f303a;
+  cursor: pointer;
+}
+
+.modal-form-consent {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: #757575;
+  margin-left: 7px;
+}
+
+.modal-form-label {
+  color: var(--accent-color);
+}
+
+.modal-form-btn {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  width: 200px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  background-color: #188ce8;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  padding: 10px 55px;
+  margin: 0 auto;
 }
