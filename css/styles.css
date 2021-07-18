@@ -536,6 +536,7 @@ body {
 .footer-icon {
   margin-left: 70px;
 }
+
 .footer-social-list {
   display: flex;
 }
@@ -574,14 +575,19 @@ body {
   fill: #ffffff;
   background: var(--accent-color);
 }
-.footer-form-wrapper {
-  width: 570px;
-  height: 86px;
+
+.footer-form-subscription {
+  position: relative;
   margin-left: auto;
 }
-.footer-form-title {
-  display: block;
-  margin-bottom: 20px;
+
+.footer-form {
+  display: flex;
+}
+
+.footer-form-wrapper {
+  position: relative;
+  display: flex;
 }
 
 .footer-form-input {
@@ -616,6 +622,17 @@ body {
   border: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.footer-btn-icon {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: flex;
+}
+
 /* ===========END Футер =========== */
 
 /* ========== Портфолiо =========== */
@@ -910,8 +927,8 @@ body {
   color: #ffffff;
   background-color: #188ce8;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  border-color: rgba(0, 0, 0, 0.15);
   cursor: pointer;
   padding: 10px 55px;
   margin: 0 auto;
